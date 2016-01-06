@@ -1,7 +1,7 @@
 CXX=g++
 LD=ld
 RM=rm -f
-CXXFLAGS=--std=c++11
+CXXFLAGS=--std=c++14 -Wall -g
 LDLIBS=-lGLEW -lglfw -lGL -lX11 -lpthread -lXrandr -lXi -lSOIL
 
 build: hello_triangle
