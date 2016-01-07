@@ -119,18 +119,12 @@ int main(int argc, char *argv[]) {
 
 		shaderProgram.use();
 
-		GLfloat timeValue = glfwGetTime();
-		GLfloat redValue = std::abs(sin(timeValue));
-		GLfloat greenValue = std::abs(cos(timeValue));
-		GLfloat blueValue = std::abs((sin(timeValue) + cos(timeValue)) / 2);
-		glUniform3f(glGetUniformLocation(shaderProgram.program, "timeColors"), redValue, greenValue, blueValue);
-
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, texture1);
-		glUniform1i(glGetUniformLocation(shaderProgram.program, "ourTexture1"), 0);
+		glUniform1i(glGetUniformLocation(shaderProgram.program, "textureWall"), 0);
 		glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_2D, texture2);
-		glUniform1i(glGetUniformLocation(shaderProgram.program, "ourTexture2"), 1);
+		glUniform1i(glGetUniformLocation(shaderProgram.program, "textureFace"), 1);
 		glUniform1f(glGetUniformLocation(shaderProgram.program, "mixValue"), mixValue);
 
 		glBindVertexArray(VAO);
@@ -148,7 +142,7 @@ int main(int argc, char *argv[]) {
 }
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode) {
-	if (key == GLFW_KEY_ESCAPE || key == GLFW_KEY_Q && action == GLFW_PRESS) {
+	if ((key == GLFW_KEY_ESCAPE || key == GLFW_KEY_Q) && action == GLFW_PRESS) {
 		glfwSetWindowShouldClose(window, GL_TRUE);
 	}
 

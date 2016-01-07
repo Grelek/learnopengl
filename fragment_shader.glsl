@@ -5,11 +5,10 @@ in vec2 TexCoord;
 
 out vec4 color;
 
-uniform sampler2D ourTexture1;
-uniform sampler2D ourTexture2;
+uniform sampler2D textureWall;
+uniform sampler2D textureFace;
 uniform float mixValue;
-uniform vec3 timeColors;
 
 void main() {
-	color = mix(texture(ourTexture1, TexCoord) * vec4(timeColors, 1.0f), texture(ourTexture2, vec2(TexCoord.x, 1 - TexCoord.y)), mixValue);
+	color = mix(texture(textureWall, TexCoord), texture(textureFace, vec2(TexCoord.x, 1 - TexCoord.y)), mixValue);
 }
