@@ -1,5 +1,4 @@
-#ifndef SHADER_H
-#define SHADER_H
+#pragma once
 
 #include <string>
 #include <fstream>
@@ -81,5 +80,3 @@ ShaderProgram::ShaderProgram(const GLchar* vertexPath, const GLchar* fragmentPat
 void ShaderProgram::use() {
 	glUseProgram(this->program);
 }
-
-#endif
