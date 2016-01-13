@@ -6,7 +6,7 @@ LDLIBS=-lGLEW -lglfw -lGL -lX11 -lpthread -lXrandr -lXi -lSOIL
 
 build: app
 
-app: app.cpp ShaderProgram.hpp
+app: app.cpp
 	$(CXX) $(CXXFLAGS) $(LDLIBS) -o app app.cpp
 
 clean:
